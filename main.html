@@ -14,7 +14,7 @@
       --soft: #fff5ef;
       --orange: #f15a2b;
       --orange-dark: #df4b20;
-      --shadow: 0 18px 46px rgba(75, 48, 31, 0.08);
+      --shadow: 0 14px 34px rgba(75, 48, 31, 0.07);
       --radius: 22px;
     }
 
@@ -44,7 +44,7 @@
       position: sticky;
       top: 0;
       z-index: 20;
-      height: 94px;
+      height: 78px;
       border-bottom: 1px solid var(--line);
       background: rgba(251, 250, 247, 0.94);
       backdrop-filter: blur(14px);
@@ -53,7 +53,7 @@
     .nav-inner,
     .section,
     .hero {
-      width: min(1500px, calc(100% - 80px));
+      width: min(1280px, calc(100% - 64px));
       margin: 0 auto;
     }
 
@@ -80,9 +80,9 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 42px;
+      gap: 30px;
       color: #8d8176;
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 600;
     }
 
@@ -98,13 +98,13 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 64px;
-      padding: 0 36px;
+      min-height: 52px;
+      padding: 0 28px;
       border-radius: 999px;
       border: 1px solid transparent;
       background: var(--orange);
       color: #fff;
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 800;
       box-shadow: 0 18px 32px rgba(241, 90, 43, 0.16);
       cursor: pointer;
@@ -123,12 +123,12 @@
     }
 
     .hero {
-      min-height: calc(100vh - 94px);
+      min-height: calc(100vh - 78px);
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(480px, 0.9fr);
+      grid-template-columns: minmax(0, 1fr) minmax(420px, 0.9fr);
       align-items: center;
-      gap: 92px;
-      padding: 72px 0 84px;
+      gap: 64px;
+      padding: 56px 0 68px;
     }
 
     .eyebrow {
@@ -147,7 +147,7 @@
 
     .hero h1 {
       margin: 0;
-      font-size: clamp(50px, 5vw, 86px);
+      font-size: clamp(42px, 4.4vw, 68px);
       line-height: 1.18;
       letter-spacing: 0;
       font-weight: 900;
@@ -157,7 +157,7 @@
       max-width: 620px;
       margin: 30px 0 42px;
       color: var(--muted);
-      font-size: 23px;
+      font-size: 19px;
       font-weight: 600;
     }
 
@@ -170,9 +170,9 @@
 
     .profile-card {
       position: relative;
-      padding: 46px;
+      padding: 36px;
       border: 2px solid var(--line);
-      border-radius: 34px;
+      border-radius: 26px;
       background: rgba(255, 255, 255, 0.92);
       box-shadow: var(--shadow);
     }
@@ -276,7 +276,7 @@
 
     .metric strong {
       color: var(--orange);
-      font-size: 34px;
+      font-size: 30px;
       line-height: 1.2;
     }
 
@@ -288,16 +288,16 @@
     }
 
     .section {
-      padding: 96px 0;
+      padding: 72px 0;
       border-top: 1px solid var(--line);
     }
 
     .section.compact {
-      padding-top: 72px;
+      padding-top: 56px;
     }
 
     .section-head {
-      margin-bottom: 58px;
+      margin-bottom: 42px;
     }
 
     .section-head.center {
@@ -306,7 +306,7 @@
 
     .section h2 {
       margin: 0;
-      font-size: clamp(42px, 4vw, 64px);
+      font-size: clamp(34px, 3.4vw, 50px);
       line-height: 1.18;
       letter-spacing: 0;
       font-weight: 900;
@@ -316,7 +316,7 @@
       max-width: 760px;
       margin: 24px 0 0;
       color: var(--muted);
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 600;
     }
 
@@ -339,8 +339,8 @@
     }
 
     .feature {
-      min-height: 254px;
-      padding: 38px 40px;
+      min-height: 214px;
+      padding: 30px 32px;
     }
 
     .icon {
@@ -360,7 +360,7 @@
     .direction h3,
     .testimonial h3 {
       margin: 0 0 14px;
-      font-size: 23px;
+      font-size: 20px;
       line-height: 1.3;
     }
 
@@ -369,7 +369,7 @@
     .testimonial p {
       margin: 0;
       color: var(--muted);
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 600;
     }
 
@@ -416,12 +416,12 @@
     }
 
     .cell {
-      min-height: 86px;
+      min-height: 72px;
       display: flex;
       align-items: center;
-      padding: 22px 44px;
+      padding: 18px 34px;
       color: #887c70;
-      font-size: 21px;
+      font-size: 18px;
       font-weight: 700;
     }
 
@@ -446,8 +446,8 @@
     }
 
     .testimonial {
-      min-height: 330px;
-      padding: 44px 46px;
+      min-height: 280px;
+      padding: 34px 36px;
     }
 
     .quote-mark {
@@ -479,14 +479,21 @@
 
     .plans {
       display: grid;
-      grid-template-columns: minmax(300px, 0.85fr) minmax(420px, 1.15fr);
-      gap: 30px;
+      grid-template-columns: minmax(280px, 0.86fr) minmax(420px, 1.14fr);
+      gap: 24px;
       align-items: stretch;
     }
 
     .plan {
       position: relative;
-      padding: 46px;
+      padding: 36px;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+    }
+
+    .plan:hover {
+      border-color: var(--orange);
+      box-shadow: 0 18px 42px rgba(241, 90, 43, 0.12);
+      transform: translateY(-4px);
     }
 
     .plan.primary {
@@ -502,21 +509,21 @@
 
     .plan h3 {
       margin: 16px 0 0;
-      font-size: 31px;
+      font-size: 27px;
       line-height: 1.25;
     }
 
     .price {
       margin: 10px 0 6px;
       color: var(--orange);
-      font-size: clamp(54px, 5vw, 76px);
+      font-size: clamp(44px, 4.2vw, 62px);
       line-height: 1.1;
       font-weight: 900;
     }
 
     .price-note {
       color: var(--muted);
-      font-size: 19px;
+      font-size: 16px;
       font-weight: 700;
     }
 
@@ -533,26 +540,26 @@
     }
 
     .plan-intro {
-      margin: 34px 0;
+      margin: 26px 0;
       padding-left: 20px;
       border-left: 5px solid var(--orange);
       color: var(--muted);
-      font-size: 21px;
+      font-size: 17px;
       font-weight: 700;
     }
 
     .check-list {
       display: grid;
       gap: 0;
-      margin: 36px 0 0;
+      margin: 26px 0 0;
       padding: 0;
       list-style: none;
     }
 
     .check-list li {
-      padding: 20px 0;
+      padding: 15px 0;
       border-top: 1px solid var(--line);
-      font-size: 21px;
+      font-size: 17px;
       font-weight: 800;
     }
 
@@ -567,8 +574,45 @@
       display: block;
       margin: 8px 0 0 34px;
       color: #c0b4aa;
-      font-size: 16px;
+      font-size: 14px;
       font-weight: 700;
+    }
+
+    .single-lessons {
+      display: grid;
+      gap: 12px;
+      margin-top: 24px;
+    }
+
+    .lesson {
+      display: grid;
+      grid-template-columns: minmax(118px, 0.9fr) minmax(140px, 1fr);
+      gap: 14px;
+      align-items: start;
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .lesson strong {
+      color: var(--text);
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    .lesson-price {
+      color: #7a3124;
+      font-size: 16px;
+      font-weight: 900;
+      letter-spacing: 0;
+    }
+
+    .lesson p {
+      grid-column: 1 / -1;
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.6;
     }
 
     .faq-list {
@@ -799,6 +843,11 @@
       .final-cta .btn {
         margin-top: 22px;
       }
+
+      .lesson {
+        grid-template-columns: 1fr;
+        gap: 6px;
+      }
     }
   </style>
 </head>
@@ -1013,22 +1062,52 @@
     <section class="section" id="products">
       <div class="section-head">
         <h2>产品选择</h2>
-        <p class="lead">方向迷茫就先咨询一次；想系统准备就报陪跑。没有对错，只有适合你的节奏。</p>
+        <p class="lead">方向迷茫就先上一节单次课；想系统准备就报陪跑。没有对错，只有适合你的节奏。</p>
       </div>
       <div class="plans">
         <article class="card plan">
           <div class="plan-label">入门 · 产品A</div>
-          <h3>专属咨询</h3>
-          <div class="price">¥499</div>
-          <div class="price-note">单次，60分钟，会后文字记录</div>
-          <p class="plan-intro">还不确定自己适不适合商业化方向？想先摸底？这一次聊，帮你想清楚。</p>
-          <ul class="check-list">
-            <li>60分钟1V1视频/语音通话</li>
-            <li>求职方向诊断<small>商业化岗是否适合你、哪个子方向更匹配</small></li>
-            <li>简历快速诊断<small>核心修改方向建议</small></li>
-            <li>商业化岗位地图拆解<small>哪些公司/岗位值得投、节奏怎么排</small></li>
-            <li>会后核心建议整理（文字版）</li>
-          </ul>
+          <h3>1对1单次课</h3>
+          <div class="price">880￥</div>
+          <div class="price-note">30分钟 · 仅一次 · 后续可抵扣陪跑课程</div>
+          <p class="plan-intro">针对当下求职迷茫困惑，快速答疑，适合先摸底方向、简历、面试或岗位选择。</p>
+          <div class="single-lessons">
+            <div class="lesson">
+              <strong>coffee chat</strong>
+              <span class="lesson-price">880￥ / 30分钟</span>
+              <p>针对当下求职迷茫困惑，快速答疑。</p>
+            </div>
+            <div class="lesson">
+              <strong>简历修改</strong>
+              <span class="lesson-price">880￥ / 份中文简历</span>
+              <p>1V1语音指导修改，STAR法则重塑简历。</p>
+            </div>
+            <div class="lesson">
+              <strong>职业规划定位</strong>
+              <span class="lesson-price">880￥ / 60分钟</span>
+              <p>1V1定制化职业规划，热门行业和岗位介绍。</p>
+            </div>
+            <div class="lesson">
+              <strong>AI / VI辅导</strong>
+              <span class="lesson-price">880￥ / 60分钟</span>
+              <p>AI / VI环节要点和逻辑，真题和高频问题解析。</p>
+            </div>
+            <div class="lesson">
+              <strong>八大问辅导</strong>
+              <span class="lesson-price">880￥ / 60分钟</span>
+              <p>模拟面试，定制化个人案例，解题思路详解。</p>
+            </div>
+            <div class="lesson">
+              <strong>群面辅导</strong>
+              <span class="lesson-price">880￥ / 60分钟</span>
+              <p>群面流程、筛选标准、策略技巧和快消群面真题解析。</p>
+            </div>
+            <div class="lesson">
+              <strong>单面 / 业务面辅导</strong>
+              <span class="lesson-price">880￥ / 60分钟</span>
+              <p>针对特定公司/岗位面试辅导，单面高频题型、通用技巧、面试复盘和商业案例分析。</p>
+            </div>
+          </div>
         </article>
         <article class="card plan primary">
           <span class="hot">🔥 主推</span>
