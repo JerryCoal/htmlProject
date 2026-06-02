@@ -1,0 +1,1088 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lin学姐｜秋招商业化陪跑</title>
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --panel: #ffffff;
+      --text: #241b15;
+      --muted: #928477;
+      --line: #ebe3da;
+      --soft: #fff5ef;
+      --orange: #f15a2b;
+      --orange-dark: #df4b20;
+      --shadow: 0 18px 46px rgba(75, 48, 31, 0.08);
+      --radius: 22px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      height: 94px;
+      border-bottom: 1px solid var(--line);
+      background: rgba(251, 250, 247, 0.94);
+      backdrop-filter: blur(14px);
+    }
+
+    .nav-inner,
+    .section,
+    .hero {
+      width: min(1500px, calc(100% - 80px));
+      margin: 0 auto;
+    }
+
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .logo {
+      font-size: 27px;
+      font-weight: 800;
+      letter-spacing: 0;
+      white-space: nowrap;
+    }
+
+    .logo span,
+    .accent {
+      color: var(--orange);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 42px;
+      color: #8d8176;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .nav-links a {
+      transition: color 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--orange);
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 64px;
+      padding: 0 36px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      background: var(--orange);
+      color: #fff;
+      font-size: 20px;
+      font-weight: 800;
+      box-shadow: 0 18px 32px rgba(241, 90, 43, 0.16);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      background: var(--orange-dark);
+    }
+
+    .btn.secondary {
+      background: #fff;
+      color: #5b4e44;
+      border-color: var(--line);
+      box-shadow: none;
+    }
+
+    .hero {
+      min-height: calc(100vh - 94px);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(480px, 0.9fr);
+      align-items: center;
+      gap: 92px;
+      padding: 72px 0 84px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border: 1px solid #facdbe;
+      border-radius: 999px;
+      background: #fff8f4;
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: 800;
+      margin-bottom: 34px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: clamp(50px, 5vw, 86px);
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .hero-copy {
+      max-width: 620px;
+      margin: 30px 0 42px;
+      color: var(--muted);
+      font-size: 23px;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .profile-card {
+      position: relative;
+      padding: 46px;
+      border: 2px solid var(--line);
+      border-radius: 34px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .profile-head {
+      display: grid;
+      grid-template-columns: 88px 1fr auto;
+      gap: 26px;
+      align-items: center;
+      margin-bottom: 28px;
+    }
+
+    .avatar,
+    .small-avatar {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--orange);
+      font-weight: 900;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      font-size: 32px;
+    }
+
+    .small-avatar {
+      width: 52px;
+      height: 52px;
+      color: var(--orange);
+      background: #fff6f0;
+      border: 2px solid #ffd5c7;
+      font-size: 22px;
+    }
+
+    .profile-card h2,
+    .profile-card p {
+      margin: 0;
+    }
+
+    .profile-card h2 {
+      font-size: 28px;
+      line-height: 1.2;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 600;
+    }
+
+    .status {
+      padding: 9px 18px;
+      border-radius: 999px;
+      border: 1px solid #ffd6ca;
+      background: #fff7f2;
+      color: var(--orange);
+      font-size: 16px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .tag-list {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      padding: 0;
+      margin: 0 0 30px;
+      list-style: none;
+    }
+
+    .tag-list li {
+      padding: 9px 16px;
+      border-radius: 8px;
+      border: 1px solid #efdcd0;
+      background: #fffaf7;
+      color: #7f6f61;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .metric {
+      min-height: 128px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      background: #f8f5f1;
+      text-align: center;
+    }
+
+    .metric strong {
+      color: var(--orange);
+      font-size: 34px;
+      line-height: 1.2;
+    }
+
+    .metric span {
+      margin-top: 10px;
+      color: #9a8c7d;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 96px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section.compact {
+      padding-top: 72px;
+    }
+
+    .section-head {
+      margin-bottom: 58px;
+    }
+
+    .section-head.center {
+      text-align: center;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(42px, 4vw, 64px);
+      line-height: 1.18;
+      letter-spacing: 0;
+      font-weight: 900;
+    }
+
+    .section .lead {
+      max-width: 760px;
+      margin: 24px 0 0;
+      color: var(--muted);
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .section-head.center .lead {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      border: 2px solid var(--line);
+      border-radius: 22px;
+      background: var(--panel);
+      box-shadow: 0 10px 32px rgba(70, 44, 30, 0.03);
+    }
+
+    .feature {
+      min-height: 254px;
+      padding: 38px 40px;
+    }
+
+    .icon {
+      width: 60px;
+      height: 60px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      border: 1px solid #ffd7c9;
+      background: #fff6f0;
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    .feature h3,
+    .direction h3,
+    .testimonial h3 {
+      margin: 0 0 14px;
+      font-size: 23px;
+      line-height: 1.3;
+    }
+
+    .feature p,
+    .direction p,
+    .testimonial p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    .directions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .direction {
+      padding: 34px 34px 36px;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      padding: 8px 16px;
+      border: 1px solid #f6cfc0;
+      border-radius: 8px;
+      background: #fff8f4;
+      color: #e9633a;
+      font-size: 17px;
+      font-weight: 700;
+    }
+
+    .compare-table {
+      overflow: hidden;
+      border-radius: 28px;
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr 1.45fr;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .row:last-child {
+      border-bottom: 0;
+    }
+
+    .cell {
+      min-height: 86px;
+      display: flex;
+      align-items: center;
+      padding: 22px 44px;
+      color: #887c70;
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .row.header .cell {
+      color: #5a4b40;
+      font-weight: 900;
+    }
+
+    .cell.win {
+      color: var(--text);
+      font-weight: 900;
+    }
+
+    .row.header .cell.win {
+      color: var(--orange);
+    }
+
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .testimonial {
+      min-height: 330px;
+      padding: 44px 46px;
+    }
+
+    .quote-mark {
+      color: var(--orange);
+      font-size: 34px;
+      font-weight: 900;
+      line-height: 1;
+      margin-bottom: 28px;
+    }
+
+    .student {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .student strong {
+      display: block;
+      font-size: 19px;
+    }
+
+    .student span {
+      display: block;
+      color: var(--muted);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .plans {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.85fr) minmax(420px, 1.15fr);
+      gap: 30px;
+      align-items: stretch;
+    }
+
+    .plan {
+      position: relative;
+      padding: 46px;
+    }
+
+    .plan.primary {
+      border-color: var(--orange);
+      background: #fffdfb;
+    }
+
+    .plan-label {
+      color: var(--orange);
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .plan h3 {
+      margin: 16px 0 0;
+      font-size: 31px;
+      line-height: 1.25;
+    }
+
+    .price {
+      margin: 10px 0 6px;
+      color: var(--orange);
+      font-size: clamp(54px, 5vw, 76px);
+      line-height: 1.1;
+      font-weight: 900;
+    }
+
+    .price-note {
+      color: var(--muted);
+      font-size: 19px;
+      font-weight: 700;
+    }
+
+    .hot {
+      position: absolute;
+      top: 34px;
+      right: 34px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 900;
+    }
+
+    .plan-intro {
+      margin: 34px 0;
+      padding-left: 20px;
+      border-left: 5px solid var(--orange);
+      color: var(--muted);
+      font-size: 21px;
+      font-weight: 700;
+    }
+
+    .check-list {
+      display: grid;
+      gap: 0;
+      margin: 36px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .check-list li {
+      padding: 20px 0;
+      border-top: 1px solid var(--line);
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .check-list li::before {
+      content: "✓";
+      color: var(--orange);
+      margin-right: 14px;
+      font-weight: 900;
+    }
+
+    .check-list small {
+      display: block;
+      margin: 8px 0 0 34px;
+      color: #c0b4aa;
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .faq-list {
+      display: grid;
+      gap: 8px;
+    }
+
+    details {
+      border: 2px solid var(--line);
+      border-radius: 22px;
+      background: #fff;
+      padding: 0;
+    }
+
+    summary {
+      position: relative;
+      list-style: none;
+      cursor: pointer;
+      padding: 34px 78px 18px 46px;
+      font-size: 25px;
+      font-weight: 900;
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+
+    summary::after {
+      content: "+";
+      position: absolute;
+      right: 44px;
+      top: 33px;
+      color: var(--orange);
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    details[open] summary::after {
+      content: "-";
+    }
+
+    details p {
+      margin: 0;
+      padding: 0 46px 34px;
+      color: var(--muted);
+      font-size: 21px;
+      font-weight: 600;
+    }
+
+    .final-cta {
+      margin-top: 42px;
+      padding: 54px;
+      border-radius: 26px;
+      background: var(--text);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+    }
+
+    .final-cta h2 {
+      color: #fff;
+      font-size: clamp(32px, 3vw, 48px);
+    }
+
+    .final-cta p {
+      margin: 10px 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 19px;
+      font-weight: 600;
+    }
+
+    @media (max-width: 1100px) {
+      .nav-inner,
+      .section,
+      .hero {
+        width: min(100% - 40px, 900px);
+      }
+
+      .nav {
+        height: auto;
+      }
+
+      .nav-inner {
+        min-height: 82px;
+      }
+
+      .nav-links {
+        gap: 20px;
+        font-size: 17px;
+      }
+
+      .hero,
+      .plans {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: auto;
+        gap: 42px;
+      }
+
+      .directions {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav-inner,
+      .section,
+      .hero {
+        width: calc(100% - 28px);
+      }
+
+      .nav-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 18px 0;
+        gap: 14px;
+      }
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+
+      .nav-links .btn {
+        min-height: 44px;
+        padding: 0 18px;
+        font-size: 15px;
+      }
+
+      .hero {
+        padding: 48px 0 62px;
+      }
+
+      .hero h1 {
+        font-size: 45px;
+      }
+
+      .hero-copy,
+      .section .lead {
+        font-size: 18px;
+      }
+
+      .btn {
+        width: 100%;
+        min-height: 56px;
+        font-size: 18px;
+      }
+
+      .profile-card,
+      .plan,
+      .testimonial,
+      .feature,
+      .direction,
+      .final-cta {
+        padding: 26px;
+      }
+
+      .profile-head {
+        grid-template-columns: 64px 1fr;
+      }
+
+      .avatar {
+        width: 64px;
+        height: 64px;
+      }
+
+      .status {
+        grid-column: 1 / -1;
+        width: fit-content;
+      }
+
+      .feature-grid,
+      .testimonials,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+
+      .row {
+        grid-template-columns: 1fr;
+      }
+
+      .cell {
+        min-height: auto;
+        padding: 14px 22px;
+        font-size: 18px;
+      }
+
+      .row {
+        padding: 12px 0;
+      }
+
+      .row.header {
+        display: none;
+      }
+
+      .cell:first-child {
+        color: var(--orange);
+      }
+
+      summary {
+        padding: 26px 56px 14px 24px;
+        font-size: 20px;
+      }
+
+      summary::after {
+        right: 24px;
+        top: 26px;
+      }
+
+      details p {
+        padding: 0 24px 28px;
+        font-size: 18px;
+      }
+
+      .final-cta {
+        display: block;
+      }
+
+      .final-cta .btn {
+        margin-top: 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="logo">Lin<span>学姐</span></a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#about">关于我</a>
+        <a href="#products">产品</a>
+        <a href="#cases">上岸案例</a>
+        <a href="#faq">FAQ</a>
+        <a class="btn" href="#products">报名咨询 →</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero" id="about">
+      <div>
+        <div class="eyebrow">🎯 互联网商业化 · 秋招求职顾问</div>
+        <h1>秋招很难，<br>但你<span class="accent">不是</span><br>一个人在打。</h1>
+        <p class="hero-copy">
+          我是Lin学姐，前小红书商业化从业者。专注帮你拿下互联网广告、行业运营、市场营销方向的大厂 offer。不套路，不批量，全程本人陪你。
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#products">🤝 报名陪跑 ¥5,800</a>
+          <a class="btn secondary" href="#why">先了解一下 →</a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Lin学姐简介">
+        <div class="profile-head">
+          <div class="avatar">L</div>
+          <div>
+            <h2>Lin学姐</h2>
+            <p>前小红书商业化 · 求职顾问</p>
+          </div>
+          <span class="status">招募中</span>
+        </div>
+        <ul class="tag-list">
+          <li>小红书商业化</li>
+          <li>教育行业投放</li>
+          <li>行业运营</li>
+          <li>广告审核</li>
+          <li>1V1陪跑</li>
+        </ul>
+        <div class="metric-grid">
+          <div class="metric">
+            <strong>7年</strong>
+            <span>腾讯商业化5年<br>小红书2年</span>
+          </div>
+          <div class="metric">
+            <strong>200+</strong>
+            <span>累计辅导同学人次</span>
+          </div>
+          <div class="metric">
+            <strong>仅剩10席</strong>
+            <span>2027届陪跑名额</span>
+          </div>
+          <div class="metric">
+            <strong>在职</strong>
+            <span>TK 3-2 运营视角</span>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="section" id="why">
+      <div class="section-head">
+        <h2>为什么选Lin学姐</h2>
+        <p class="lead">不是机构，不是大课，只有真正走过这条路的人，才能带你少走弯路。</p>
+      </div>
+      <div class="feature-grid">
+        <article class="card feature">
+          <div class="icon">🏢</div>
+          <h3>平台内部视角</h3>
+          <p>前小红书商业化从业者，深度参与教育行业广告投放与审核逻辑，懂平台规则比任何人都深。面试时你讲出来的，才是真实的业务经验。</p>
+        </article>
+        <article class="card feature">
+          <div class="icon">🎯</div>
+          <h3>商业化赛道专精</h3>
+          <p>只做互联网广告、行业运营、市场营销方向，不做泛化求职辅导。每一条建议都针对这条赛道的真实考察点。</p>
+        </article>
+        <article class="card feature">
+          <div class="icon">🤝</div>
+          <h3>本人全程不外包</h3>
+          <p>严格控制接单人数，每位学员都由Lin学姐本人跟进简历、面试、答疑，不转助教，不换人，你的进度我一直记得。</p>
+        </article>
+        <article class="card feature">
+          <div class="icon">💬</div>
+          <h3>说人话，不套路</h3>
+          <p>不画大饼，不夸大包装，认真分析你的情况，告诉你能冲什么、应该怎么准备，诚实比正确答案更重要。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section compact">
+      <div class="section-head">
+        <div class="eyebrow">🏆 目标offer</div>
+        <h2>你可以冲哪些方向</h2>
+        <p class="lead">商业化赛道横跨多个平台，Lin学姐帮你找到最匹配的那一条路。</p>
+      </div>
+      <div class="directions">
+        <article class="card direction">
+          <h3>🔴 头部互联网平台</h3>
+          <div class="chip-row">
+            <span class="chip">小红书</span>
+            <span class="chip">字节/巨量引擎</span>
+            <span class="chip">阿里妈妈</span>
+            <span class="chip">腾讯广告</span>
+            <span class="chip">百度营销</span>
+            <span class="chip">快手磁力</span>
+          </div>
+        </article>
+        <article class="card direction">
+          <h3>📦 电商 & 新兴平台</h3>
+          <div class="chip-row">
+            <span class="chip">美团</span>
+            <span class="chip">拼多多</span>
+            <span class="chip">京东</span>
+            <span class="chip">TikTok</span>
+            <span class="chip">Shopee</span>
+          </div>
+        </article>
+        <article class="card direction">
+          <h3>🌟 品牌 & 广告方向</h3>
+          <div class="chip-row">
+            <span class="chip">品牌市场管培</span>
+            <span class="chip">4A广告公司</span>
+            <span class="chip">效果广告公司</span>
+            <span class="chip">营销科技公司</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <div class="eyebrow">⚖️ 对比</div>
+        <h2>和机构有什么不同</h2>
+        <p class="lead">商业化赛道很垂直，泛化的机构给不了你真正有用的东西。</p>
+      </div>
+      <div class="card compare-table">
+        <div class="row header">
+          <div class="cell">对比维度</div>
+          <div class="cell">普通辅导机构</div>
+          <div class="cell win">Lin学姐</div>
+        </div>
+        <div class="row">
+          <div class="cell">赛道专业度</div>
+          <div class="cell">泛化，什么都教</div>
+          <div class="cell win">专注互联网商业化赛道</div>
+        </div>
+        <div class="row">
+          <div class="cell">平台内部视角</div>
+          <div class="cell">几乎没有</div>
+          <div class="cell win">前小红书商业化，一手经验</div>
+        </div>
+        <div class="row">
+          <div class="cell">个人化程度</div>
+          <div class="cell">套模板，流水线</div>
+          <div class="cell win">本人1V1，了解每个人情况</div>
+        </div>
+        <div class="row">
+          <div class="cell">答疑响应</div>
+          <div class="cell">助教转接，慢且生硬</div>
+          <div class="cell win">本人微信，工作日当天回</div>
+        </div>
+        <div class="row">
+          <div class="cell">接收人数</div>
+          <div class="cell">大量，质量无保障</div>
+          <div class="cell win">严格限额10人，质量第一</div>
+        </div>
+        <div class="row">
+          <div class="cell">价格区间</div>
+          <div class="cell">¥20,000-40,000</div>
+          <div class="cell win">¥5,800（早鸟价）</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cases">
+      <div class="section-head">
+        <h2>他们怎么说</h2>
+        <p class="lead">真实反馈，会持续更新。</p>
+      </div>
+      <div class="testimonials">
+        <article class="card testimonial">
+          <div class="quote-mark">"</div>
+          <p>学姐帮我分析完才发现，平台侧的行业运营更适合我，竞争没那么白热化。方向对了，后面一切都顺了。字节offer到手，感谢学姐救了我的认知。</p>
+          <div class="student"><span class="small-avatar">Z</span><div><strong>港硕 小Z</strong><span>字节行业运营offer</span></div></div>
+        </article>
+        <article class="card testimonial">
+          <div class="quote-mark">"</div>
+          <p>学姐跟我讲完商业化部门的结构和岗位逻辑，我才第一次搞清楚自己要投哪个组、面试要讲什么业务视角。这种内部视角真的很难从别人处获得。</p>
+          <div class="student"><span class="small-avatar">W</span><div><strong>985本硕 小W</strong><span>小红书商业化offer</span></div></div>
+        </article>
+        <article class="card testimonial">
+          <div class="quote-mark">"</div>
+          <p>一次咨询把认知框架直接搭好了，省了至少一个月的摸索时间。秋招前完全不知道商业化是什么赛道，学姐讲完豁然开朗。</p>
+          <div class="student"><span class="small-avatar">L</span><div><strong>双非本英硕 小L</strong><span>腾讯广告运营offer</span></div></div>
+        </article>
+        <article class="card testimonial">
+          <div class="quote-mark">"</div>
+          <p>简历改了三版，每次都能点出新的问题，不是在帮我润色，是真的在帮我重新思考怎么表达这段经历。改完之后面试邀约多了两倍不止。</p>
+          <div class="student"><span class="small-avatar">C</span><div><strong>985硕 小C</strong><span>百度营销offer</span></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <h2>产品选择</h2>
+        <p class="lead">方向迷茫就先咨询一次；想系统准备就报陪跑。没有对错，只有适合你的节奏。</p>
+      </div>
+      <div class="plans">
+        <article class="card plan">
+          <div class="plan-label">入门 · 产品A</div>
+          <h3>专属咨询</h3>
+          <div class="price">¥499</div>
+          <div class="price-note">单次，60分钟，会后文字记录</div>
+          <p class="plan-intro">还不确定自己适不适合商业化方向？想先摸底？这一次聊，帮你想清楚。</p>
+          <ul class="check-list">
+            <li>60分钟1V1视频/语音通话</li>
+            <li>求职方向诊断<small>商业化岗是否适合你、哪个子方向更匹配</small></li>
+            <li>简历快速诊断<small>核心修改方向建议</small></li>
+            <li>商业化岗位地图拆解<small>哪些公司/岗位值得投、节奏怎么排</small></li>
+            <li>会后核心建议整理（文字版）</li>
+          </ul>
+        </article>
+        <article class="card plan primary">
+          <span class="hot">🔥 主推</span>
+          <div class="plan-label">核心 · 产品B</div>
+          <h3>秋招全程陪跑</h3>
+          <div class="price">¥5,800</div>
+          <div class="price-note">早鸟价 · 仅限10人 · 有效至2027年春招结束</div>
+          <p class="plan-intro">对比机构2万起的课程，Lin学姐把定位、简历、笔试、网申、面试和答疑都放在一个陪跑计划里。</p>
+          <ul class="check-list">
+            <li>求职定位 & 岗位规划<small>商业化赛道地图、时间线、打法建议</small></li>
+            <li>简历定制（不限次迭代）<small>多版本支持，突出商业化思维和数据意识</small></li>
+            <li>笔试 & 网申辅导<small>选岗建议、真题参考、内推资源对接（视情况）</small></li>
+            <li>面试辅导（不限次模拟）<small>业务case、群面、压力面、offer决策全覆盖</small></li>
+            <li>全程微信不限次答疑<small>工作日24小时内回复，Lin学姐本人，不经助教</small></li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="faq">
+      <div class="section-head">
+        <h2>常见问题</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>我不是商业化方向，可以咨询吗？</summary>
+          <p>目前Lin学姐专注互联网商业化赛道（广告/行业运营/市场营销），其他方向暂不接受，建议找对应专业导师。</p>
+        </details>
+        <details open>
+          <summary>只想咨询一次，不买陪跑，可以吗？</summary>
+          <p>完全可以，产品A就是为这种情况设计的。一次咨询结束后，如果你想继续，可以抵扣部分陪跑费用。</p>
+        </details>
+        <details open>
+          <summary>陪跑是本人辅导还是有助教？</summary>
+          <p>全程Lin学姐本人，不外包，不转助教。这也是限额10人的原因，接太多就做不到了。</p>
+        </details>
+        <details open>
+          <summary>现在报名26年秋招还来得及吗？</summary>
+          <p>当然来得及。陪跑计划有效期覆盖秋招、春招和暑期实习，越早开始越从容。</p>
+        </details>
+        <details open>
+          <summary>会有录播课或大班课吗？</summary>
+          <p>目前全部为1V1服务，没有录播课。定制化是核心，批量化的东西Lin学姐不做。</p>
+        </details>
+      </div>
+
+      <div class="final-cta">
+        <div>
+          <h2>想清楚方向，再开始冲。</h2>
+          <p>商业化岗位不缺机会，缺的是清晰定位、真实业务视角和持续执行。</p>
+        </div>
+        <a class="btn" href="#products">报名咨询 →</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
